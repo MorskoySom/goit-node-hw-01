@@ -1,4 +1,5 @@
 console.log(`Hello, bro`);
+
 import { program } from "commander";
 import * as contactSevice from "./contacts.js"
 
@@ -31,8 +32,3 @@ const invokeAction = async ({ action, id, name, email, phone }) => {
 }
 
 invokeAction(argv);
-
-// invokeAction({ action: "list" });
-// invokeAction({ action: "getById", id: 'AeHIrLTr6JkxGE6SN-0Rw' });
-// invokeAction({ action: "add", name: 'Paha Som', email: 'paha@gmail.com', phone: '(066) 479-3010'});
-// invokeAction({ action: "deleteById", id: "6HUvUbjJnP_L8RM4J2z3B" });
