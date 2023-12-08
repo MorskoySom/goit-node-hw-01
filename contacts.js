@@ -9,9 +9,9 @@ export const listContacts = async () => {
     return JSON.parse(data);
 }
 
-export const getContactById = async (contactId) => {
+export const getContactById = async (id) => {
   const contacts = await listContacts();
-  const result = contacts.find(contact => contact.id === contactId);
+  const result = contacts.find(contact => contact.id === id);
   return result || null;
 }
 
@@ -28,9 +28,9 @@ export const addContact = async (name, email, phone) => {
   return newContact;
 }
 
-export const removeContact = async (contactId) => {
+export const removeContact = async (id) => {
   const contacts = await listContacts();
-  const idx = contacts.findIndex(contact => contact.id === contactId);
+  const idx = contacts.findIndex(contact => contact.id === id);
   if (idx === -1) {
     return null;
   }
