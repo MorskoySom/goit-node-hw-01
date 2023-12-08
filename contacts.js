@@ -28,6 +28,13 @@ export const addContact = async (name, email, phone) => {
   return newContact;
 }
 
-export function removeContact(contactId) {
-  // ...твой код. Возвращает объект удаленного контакта. Возвращает null, если объект с таким id не найден.
+export const removeContact = async (contactId) => {
+  const contacts = await listContacts();
+  const idx = contacts.findIndex(contact => contact.id === contactId);
+  if (idx === -1) {
+    return null;
+  }
+  const [result] = contacts.splice(idx, 1);
+  await fs.writeFile(contactsPath, JSON.stringify(contacts, null, 2));
+  return result;
 }

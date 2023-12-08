@@ -13,10 +13,13 @@ const invokeAction = async ({ action, contactId, name, email, phone }) => {
         case "add":
             const newContact = await contactSevice.addContact(name, email, phone);
             return console.log(newContact);
-
+        case "deleteById":
+            const deleteContact = await contactSevice.removeContact(contactId);
+            return console.log(deleteContact);
     }
 }
 
 // invokeAction({ action: "list" });
 // invokeAction({ action: "getById", contactId: 'AeHIrLTr6JkxGE6SN-0Rw' });
 // invokeAction({ action: "add", name: 'Paha Som', email: 'paha@gmail.com', phone: '(066) 479-3010'});
+invokeAction({ action: "deleteById", contactId: "6HUvUbjJnP_L8RM4J2z3B" });
